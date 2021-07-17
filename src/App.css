@@ -1,38 +1,32 @@
+
+/*#EBD0B4*/
+/*#BF884E*/
+/*#925946 DarkBrown*/
+/*#CA8462 Medium Brown*/
+/*#EEB1A2 Light Pink*/
+/*#F0D0C1 Beige*/
+/*#D7897E Pink*/
+/*#C55F4E Red*/
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #F0D0C1;
+  color: #925946;
+  font-family: 'Merriweather', serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  color: #C55F4E;
+  font-family: 'Sacramento', cursive;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-heading {
+  color: #C55F4E;
+  font-family: 'Sacramento', cursive;
+  font-size: 3em;
+  font-weight: bold;
+  margin-top: 10px;
 }
