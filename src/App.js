@@ -7,6 +7,7 @@ import Pricing from "./components/Pricing";
 import Shop from "./components/Shop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import BookNow from "./components/BookNow";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <About />
         <Pricing />
         <Shop />
+        <BookNow />
         <Footer />
     </div>
   );
