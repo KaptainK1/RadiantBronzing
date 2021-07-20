@@ -1,32 +1,84 @@
 
 /*#EBD0B4*/
 /*#BF884E*/
-/*#925946 DarkBrown*/
-/*#CA8462 Medium Brown*/
-/*#EEB1A2 Light Pink*/
-/*#F0D0C1 Beige*/
-/*#D7897E Pink*/
-/*#C55F4E Red*/
+
+/*#3e5336 DarkGreen*/
+/*#948f47 MediumGreen*/
+/*#f6da73 Yellow*/
+/*#f6f5f0 White*/
+/*#e55b73 Pink*/
+
+.trouble {
+  border-color: red;
+  border-radius: 1px;
+}
+
+.about-section{
+  background-color: #f6f5f0;
+}
+
+.pricing-section {
+  background-color: #3e5336;
+  color: #f6da73;
+}
+
+.content-section {
+  min-width: 100%;
+  min-height: 300px;
+}
 
 .App {
   text-align: center;
 }
 
 body {
-  background-color: #F0D0C1;
-  color: #925946;
+  background-color: #f6f5f0;
+  color: #3e5336;
   font-family: 'Merriweather', serif;
 }
 
 h1 {
-  color: #C55F4E;
+  color: #948f47;
   font-family: 'Sacramento', cursive;
 }
 
 .main-heading {
-  color: #C55F4E;
+  color: #3e5336;
   font-family: 'Sacramento', cursive;
   font-size: 3em;
   font-weight: bold;
   margin-top: 10px;
+}
+
+.section-text {
+  padding: 50px;
+}
+
+.btn-outline-primary {
+  background-color: #f6f5f0;
+  color: #e55b73;
+  border-color: #e55b73;
+}
+
+.btn-outline-primary:hover {
+  background-color: #e55b73;
+  color: #f6f5f0;
+  border-color: #f6f5f0;
+}
+
+.nav-color {
+  background-color: #f6da73;
+}
+
+.nav-link {
+  color: #3e5336;
+}
+
+.nav-link:hover {
+  color: #e55b73;
+}
+
+.calendar-form {
+  border-color: #e55b73;
+  border-style: dashed;
 }

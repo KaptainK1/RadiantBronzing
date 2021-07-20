@@ -38,7 +38,7 @@ class BookNow extends React.Component {
                 <form onSubmit={this.onSubmitForm}>
                     <div className="input-group mb-3">
                         <DatePicker
-                          className="form-control"
+                          className="form-control calendar-form"
                           selected={this.state.selectedDate}
                           onChange={this.onDateChange}
                           minDate={new Date()}
@@ -48,13 +48,14 @@ class BookNow extends React.Component {
                           timeFormat="HH:mm"
                           timeCaption="time available"
                           dateFormat="MMMM d, yyyy h:mm aa"
+                          // by setting the min and max time, we can limit the hours
                           minTime={new Date(0,0,0,7,30)}
                           maxTime={new Date(0,0,0,18,30)}
                           ref={(c) => this._calendar = c}
-
                         />
-                        <button className="btn btn-outline-primary" id="button-addon2">Book Appointment!</button>
+
                     </div>
+                    <button className="btn btn-lg btn-outline-primary">Book Appointment!</button>
                 </form>
             </div>
         );
