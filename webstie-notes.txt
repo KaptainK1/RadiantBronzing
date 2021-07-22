@@ -1,0 +1,3 @@
+Radiant Bronzing Boutique LLC Website Notes
+
+navbar sandwhich icon is missing when on mobile

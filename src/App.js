@@ -8,6 +8,7 @@ import Shop from "./components/Shop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BookNow from "./components/BookNow";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Pricing />
         <Shop />
         <BookNow />
+        <Contact />
         <Footer />
     </div>
   );

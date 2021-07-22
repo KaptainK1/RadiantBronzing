@@ -20,7 +20,8 @@ class BookNow extends React.Component {
     }
 
     componentDidMount() {
-        this.openDatepicker();
+        // function to open the date picker when the component mounts
+        // this.openDatepicker();
     }
 
     onDateChange(date){

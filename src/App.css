@@ -8,9 +8,35 @@
 /*#f6f5f0 White*/
 /*#e55b73 Pink*/
 
-.trouble {
+/*@mixin input-error {*/
+/*    border-color: red;*/
+/*    border-radius: 1px;*/
+/*    background-color: red;*/
+/*}*/
+
+
+.input-error  {
+  /*border-color: red;*/
+  /*border-radius: 10px;*/
+  /*border-width: 10px;*/
+  /*background-color: #FF99CC;*/
+}
+
+/*.input-error-unfocus {*/
+
+/*  box-shadow: 0 0 0 0 blue;*/
+/*  border-color: blue;*/
+/*}*/
+
+/*.input-error-unfocus:focus{*/
+/*  outline : invert;*/
+/*  box-shadow : none;*/
+/*}*/
+
+.input-error:focus {
+  outline: none !important;
   border-color: red;
-  border-radius: 1px;
+  box-shadow: 0 0 10px red;
 }
 
 .about-section{
@@ -26,6 +52,11 @@
   min-width: 100%;
   min-height: 300px;
 }
+
+.contact-section {
+
+}
+
 
 .App {
   text-align: center;
@@ -81,4 +112,12 @@ h1 {
 .calendar-form {
   border-color: #e55b73;
   border-style: dashed;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+textarea {
+  height: 100px;
 }
