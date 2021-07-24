@@ -102,6 +102,8 @@ class Contact extends React.Component {
         }
     }
 
+    //TODO make a single function to add and remove the input error class
+
     handleFirstNameChange(event){
         this.setState({firstName: event.target.value});
         if (event.target.value.length < 0 || event.target.value.length > 20){
