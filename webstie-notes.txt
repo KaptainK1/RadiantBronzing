@@ -1,3 +1,10 @@
 Radiant Bronzing Boutique LLC Website Notes
 
 navbar sandwhich icon is missing when on mobile
+
+
+/*#230c0f DarkSienna*/
+/*#a2d3c2 Aqua*/
+/*#cba328 LemonCurry*/
+/*#ead637 Citrine*/
+/*#d6f49d Yellow Green Crayola*/

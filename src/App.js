@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BookNow from "./components/BookNow";
 import Contact from "./components/Contact";
+import HorizontalRule from "./components/HorizontalRule";
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
         <Header />
         <Navbar />
         <About />
+        <HorizontalRule />
         <Pricing />
+        <HorizontalRule />
         <Shop />
         <BookNow />
         <Contact />

@@ -50,12 +50,19 @@
 }
 
 .about-section{
-  background-color: #f6f5f0;
+  background-color: #f9fad1;
+  color: #341b14;
+}
+
+.shop-section {
+  background-color: #f9fad1;
+  color: #341b14;
 }
 
 .pricing-section {
-  background-color: #3e5336;
-  color: #f6da73;
+  background-color: #f9fad1;
+  color: #341b14;
+  font-weight: normal;
 }
 
 .content-section {
@@ -63,10 +70,22 @@
   min-height: 300px;
 }
 
+hr {
+  margin: 0 45% 0 45%;
+  border-color: black;
+  background-color: transparent;
+  /*border-style: dashed;*/
+  border-bottom-style: dotted;
+  border-width: 15px;
+}
+
+.hr {
+  background-color: #f9fad1;
+}
+
 .contact-section {
 
 }
-
 
 .App {
   text-align: center;
@@ -79,12 +98,13 @@ body {
 }
 
 h1 {
-  color: #948f47;
+  color: #ff9b21;
   font-family: 'Sacramento', cursive;
+  font-weight: bold;
 }
 
 .main-heading {
-  color: #3e5336;
+  color: #407d87;
   font-family: 'Sacramento', cursive;
   font-size: 3em;
   font-weight: bold;
@@ -97,30 +117,30 @@ h1 {
 
 .btn-outline-primary {
   background-color: #f6f5f0;
-  color: #e55b73;
-  border-color: #e55b73;
+  color: #ee6802;
+  border-color: #ee6802;
 }
 
 .btn-outline-primary:hover {
-  background-color: #e55b73;
+  background-color: #ee6802;
   color: #f6f5f0;
   border-color: #f6f5f0;
 }
 
 .nav-color {
-  background-color: #f6da73;
+  background-color: #ee6802;
 }
 
 .nav-link {
-  color: #3e5336;
+  color: #f9fad1;
 }
 
 .nav-link:hover {
-  color: #e55b73;
+  color: #407d87;
 }
 
 .calendar-form {
-  border-color: #e55b73;
+  border-color: #ee6802;
   border-style: dashed;
 }
 
