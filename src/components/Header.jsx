@@ -1,10 +1,14 @@
 import React from 'react';
+import sunImg from '../images/sun-trans.png';
 
 
 function Header(props) {
 
     return(
-        <h1 className={"main-heading"}>Radiant Bronzing Boutique LLC</h1>
+        <div>
+            <h1 className={"main-heading"}>Radiant Bronzing Boutique LLC</h1>
+            <img src={sunImg} alt="sun" className="main-heading-img"/>
+        </div>
     );
 }
 

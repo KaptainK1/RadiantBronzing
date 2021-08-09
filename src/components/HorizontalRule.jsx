@@ -7,7 +7,6 @@ function HorizontalRule(){
         <div className="hr">
             <hr/>
         </div>
-
     );
 }
 

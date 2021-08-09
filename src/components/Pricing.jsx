@@ -12,7 +12,7 @@ function Pricing(props) {
                     <p>{lorem}</p>
                 </div>
                 <div className="col-sm-4">
-                    <img src={logo}/>
+                    <img src={logo} alt="test"/>
                 </div>
             </div>
         </div>

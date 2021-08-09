@@ -8,7 +8,7 @@ function About(props) {
         <div className="container-fluid">
             <div className="row about-section content-section">
                 <div className="col-sm-4">
-                    <img src={logo}/>
+                    <img src={logo} alt="test"/>
                 </div>
                 <div className="col-sm-8 section-text">
                     <h1 id="aboutSection">This is the about section</h1>

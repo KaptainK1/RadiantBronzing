@@ -9,10 +9,7 @@ class Contact extends React.Component {
             lastName: '',
             phone: '',
             email: '',
-            message: '',
-            isError: {
-
-            }
+            message: ''
         }
 
         //variables to hold the input objects which we can use to interact with
@@ -21,7 +18,6 @@ class Contact extends React.Component {
         this.textPhoneInput = null;
         this.textEmailInput = null;
         this.textMessageInput = null;
-        //this.erroredInputs = [];
 
         this.setFirstNameTextInputRef = element => {
             this.textFirstNameInput = element
@@ -32,11 +28,11 @@ class Contact extends React.Component {
         }
 
         this.setPhoneTextInputRef = element => {
-            this.textEmailInput = element
+            this.textPhoneInput = element
         }
 
         this.setEmailTextInputRef = element => {
-            this.textPhoneInput = element
+            this.textEmailInput = element
         }
 
         this.setMessageTextInputRef = element => {
@@ -45,7 +41,6 @@ class Contact extends React.Component {
 
         this.setInputErrorColor = this.setInputErrorColor.bind(this);
         this.setInputFocus = this.setInputFocus.bind(this);
-        // this.removeInputErrorColor = this.removeInputErrorColor.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
         this.handleLastNameChange = this.handleLastNameChange.bind(this);
@@ -53,6 +48,7 @@ class Contact extends React.Component {
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleMessageChange = this.handleMessageChange.bind(this);
         this.formValidation = this.formValidation.bind(this);
+        this.checkInput = this.checkInput.bind(this);
     }
 
     setInputErrorColor(element) {
@@ -91,55 +87,93 @@ class Contact extends React.Component {
     }
 
     formValidation(){
-
-        if (this.state.firstName.length < 0 || this.state.firstName.length > 20) {
-            this.setInputErrorColor(this.textFirstNameInput);
-             //this.erroredInputs.push(this.textFirstNameInput);
-            alert("Sorry, First name must be greater than 0 and less than 20 characters");
-            this.setInputFocus(this.textFirstNameInput);
-            //this.setInputFocus(this.textFirstNameInput);
-            return false;
-        }
+        let inputs = [{
+            inputField: this.textFirstNameInput, minLength:0, maxLength:20
+        }, {
+            inputField: this.textLastNameInput, minLength:0, maxLength:20
+        }, {
+            inputField: this.textPhoneInput,
+            minLength:0,
+            maxLength:11
+        }, {
+            inputField: this.textEmailInput, minLength:0, maxLength:50
+        }, {
+            inputField: this.textMessageInput, minLength:0, maxLength:255
+        }];
+        let isError = true;
+        inputs.forEach(element => {
+            console.log(element);
+                if (!this.checkValueIsInRange(element.inputField.value.length, element.minLength, element.maxLength)) {
+                    this.setInputErrorColor(element.inputField);
+                    alert("Sorry, there was an error with " + element.inputField.placeholder + " please check the data and try again");
+                    this.setInputFocus(element.inputField);
+                    isError = false;
+                }
+            }
+        );
+        return isError;
     }
 
     //TODO make a single function to add and remove the input error class
 
     handleFirstNameChange(event){
         this.setState({firstName: event.target.value});
-        if (event.target.value.length < 0 || event.target.value.length > 20){
-            if (!this.textFirstNameInput.classList.contains("input-error")){
-                this.textFirstNameInput.classList.add("input-error");
+        this.checkInput(event, this.textFirstNameInput, 0, 20);
+
+        // if (event.target.value.length < 0 || event.target.value.length > 20){
+        //     if (!this.textFirstNameInput.classList.contains("input-error")){
+        //         this.textFirstNameInput.classList.add("input-error");
+        //     }
+        // } else {
+        //     if (this.textFirstNameInput.classList.contains("input-error")){
+        //         this.textFirstNameInput.classList.remove("input-error");
+        //     }
+        // }
+    }
+
+    //method to check a users input to see if its in the appropriate range
+    //if not, flag teh input field as red by adding the input-error class
+    //then return the text input object (should be an input field)
+    checkInput(event, textInput, minValue, maxValue){
+        if (!this.checkValueIsInRange(event.target.value.length,minValue,maxValue)){
+            if (!textInput.classList.contains("input-error")){
+                textInput.classList.add("input-error");
             }
-            console.log("added class, count is: " + this.state.firstName.length);
-            console.log("removed class,event count is: " + event.target.value.length);
         } else {
-            if (this.textFirstNameInput.classList.contains("input-error")){
-                this.textFirstNameInput.classList.remove("input-error");
+            if (textInput.classList.contains("input-error")){
+                textInput.classList.remove("input-error");
             }
-            console.log("removed class, count is: " + this.state.firstName.length);
-            console.log("removed class, event count is: " + event.target.value.length);
         }
-        console.log("state value: " + this.state.firstName);
-        console.log("event value: " + event.target.value);
+    }
+
+    checkValueIsInRange(value, minValue, maxValue){
+        if (value < minValue || value > maxValue){
+            return false;
+        }
+        return true;
     }
 
     handleLastNameChange(event){
         this.setState({lastName: event.target.value});
+        this.checkInput(event, this.textLastNameInput, 0, 20);
         console.log(this.state.lastName);
     }
 
     handlePhoneChange(event){
         this.setState({phone: event.target.value});
+        this.checkInput(event, this.textPhoneInput, 0, 11);
         console.log(this.state.phone);
     }
 
     handleEmailChange(event){
         this.setState({email: event.target.value});
+        this.checkInput(event, this.textEmailInput, 0, 50);
         console.log(this.state.email);
     }
 
     handleMessageChange(event){
         this.setState({message: event.target.value});
+        this.checkInput(event, this.textMessageInput, 0, 255);
         console.log(this.state.message);
     }
 
@@ -182,7 +216,7 @@ class Contact extends React.Component {
                                 <div className="trouble">
                                 <input id="inputPhone" placeholder="Phone Number" className="form-control" type="tel"
                                        value={this.state.phone}
-                                       // ref={this.setPhoneTextInputRef}
+                                       ref={this.setPhoneTextInputRef}
                                        onChange={this.handlePhoneChange}/>
                                 </div>
                             </div>
@@ -193,7 +227,7 @@ class Contact extends React.Component {
                                 </label>
                                 <input id="inputEmail" placeholder="Email" className="form-control" required={true} type="email"
                                        value={this.state.email}
-                                       // ref={this.setEmailTextInputRef}
+                                       ref={this.setEmailTextInputRef}
                                        onChange={this.handleEmailChange}/>
                             </div>
                         </div>
@@ -207,9 +241,10 @@ class Contact extends React.Component {
                                 <label htmlFor="inputMessage">
                                     Message:
                                 </label>
-                                <textarea id="inputMessage" placeholder="Your Message" className="form-control" required={true}
+                                <textarea id="inputMessage" placeholder="Message" className="form-control" required={true}
                                           // ref={this.setMessageTextInputRef}
                                           value={this.state.message}
+                                          ref={this.setMessageTextInputRef}
                                           onChange={this.handleMessageChange}/>
                                 <small id="emailHelp" className="form-text text-muted">We'll never share your personal information with anyone
                                     else.</small>

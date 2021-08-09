@@ -2,46 +2,15 @@
 /*#EBD0B4*/
 /*#BF884E*/
 
-/*$dark-color: #230c0f;*/
-
-
-/*#3e5336 DarkGreen*/
-/*#948f47 MediumGreen*/
-/*#f6da73 Yellow*/
-/*#f6f5f0 White*/
-/*#e55b73 Pink*/
-
 /*#230c0f DarkSienna*/
-/*#a2d3c2 Aqua*/
-/*#cba328 LemonCurry*/
-/*#ead637 Citrine*/
-/*#d6f49d Yellow Green Crayola*/
-
-
-/*@mixin input-error {*/
-/*    border-color: red;*/
-/*    border-radius: 1px;*/
-/*    background-color: red;*/
-/*}*/
-
+/*#341b14 Brown*/
+/*#f9fad1 LightYellow*/
+/*#407d87 Teal*/
+/*#ff9b21 Orange*/
+/*#ee6802 BloodOrange*/
 
 .input-error  {
-  /*border-color: red;*/
-  /*border-radius: 10px;*/
-  /*border-width: 10px;*/
-  /*background-color: #FF99CC;*/
 }
-
-/*.input-error-unfocus {*/
-
-/*  box-shadow: 0 0 0 0 blue;*/
-/*  border-color: blue;*/
-/*}*/
-
-/*.input-error-unfocus:focus{*/
-/*  outline : invert;*/
-/*  box-shadow : none;*/
-/*}*/
 
 .input-error:focus {
   outline: none !important;
@@ -50,18 +19,20 @@
 }
 
 .about-section{
-  background-color: #f9fad1;
-  color: #341b14;
+
+}
+
+.about-section p {
+  position: relative;
+  z-index: 2;
 }
 
 .shop-section {
-  background-color: #f9fad1;
-  color: #341b14;
+
 }
 
 .pricing-section {
-  background-color: #f9fad1;
-  color: #341b14;
+
   font-weight: normal;
 }
 
@@ -72,7 +43,8 @@
 
 hr {
   margin: 0 45% 0 45%;
-  border-color: black;
+  border-color: #341b14;
+  opacity: 70%;
   background-color: transparent;
   /*border-style: dashed;*/
   border-bottom-style: dotted;
@@ -80,7 +52,7 @@ hr {
 }
 
 .hr {
-  background-color: #f9fad1;
+
 }
 
 .contact-section {
@@ -92,9 +64,9 @@ hr {
 }
 
 body {
-  background-color: #f6f5f0;
-  color: #3e5336;
+  color: #341b14;
   font-family: 'Merriweather', serif;
+  background-color: #f9fad1;
 }
 
 h1 {
@@ -150,4 +122,13 @@ h1 {
 
 textarea {
   height: 100px;
+}
+
+.main-heading-img {
+  display: inline;
+  position: absolute;
+  right: -50px;
+  transform: rotate(35deg);
+  z-index: 2;
+  top: -20px;
 }
