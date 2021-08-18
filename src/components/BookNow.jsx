@@ -47,7 +47,7 @@ class BookNow extends React.Component {
                           showTimeSelect
                           timeIntervals={30}
                           timeFormat="HH:mm"
-                          timeCaption="time available"
+                          timeCaption="Time"
                           dateFormat="MMMM d, yyyy h:mm aa"
                           // by setting the min and max time, we can limit the hours
                           minTime={new Date(0,0,0,7,30)}

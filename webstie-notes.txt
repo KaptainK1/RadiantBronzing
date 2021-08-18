@@ -8,3 +8,27 @@ navbar sandwhich icon is missing when on mobile
 /*#cba328 LemonCurry*/
 /*#ead637 Citrine*/
 /*#d6f49d Yellow Green Crayola*/
+
+
+#fabc09 Orange
+#facc43 Yellow
+#25bea0 green
+#374353 dark gray
+#ffffff white
+
+
+#4100e0 voilet purple
+
+
+
+#ee6802 blood orange
+#ff9b21 orange
+#fecf50 yellow
+#f9fad1 light yellow
+#aac3bd gray
+#407d87 blue
+#341b14 brown
+
+                <p>City: </p>
+                <p>State: </p>
+                <p>Zip:  </p>
