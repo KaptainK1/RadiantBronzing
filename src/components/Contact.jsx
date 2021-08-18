@@ -1,4 +1,5 @@
 import React from 'react';
+import DatePicker from "react-datepicker";
 
 class Contact extends React.Component {
 
@@ -9,7 +10,9 @@ class Contact extends React.Component {
             lastName: '',
             phone: '',
             email: '',
-            message: ''
+            message: '',
+            selectedDate: new Date(),
+            isAppointment: false
         }
 
         //variables to hold the input objects which we can use to interact with
@@ -49,6 +52,7 @@ class Contact extends React.Component {
         this.handleMessageChange = this.handleMessageChange.bind(this);
         this.formValidation = this.formValidation.bind(this);
         this.checkInput = this.checkInput.bind(this);
+        this.onDateChange=this.onDateChange.bind(this);
     }
 
     setInputErrorColor(element) {
@@ -59,17 +63,13 @@ class Contact extends React.Component {
         element.focus();
     }
 
-    // removeInputErrorColor(){
-    //     for (let i = 0; i < this.erroredInputs.length; i++) {
-    //         this.erroredInputs[i].focus();
-    //         this.erroredInputs[i].classList.remove("input-error");
-    //         console.log("removing input error class");
-    //     }
-    // }
-
     handleSubmit(event){
 
         event.preventDefault();
+
+        if (this.state.isAppointment === true){
+            alert("Appointment Confirmed!");
+        }
 
         let isValidated = this.formValidation();
         console.log(isValidated);
@@ -114,21 +114,9 @@ class Contact extends React.Component {
         return isError;
     }
 
-    //TODO make a single function to add and remove the input error class
-
     handleFirstNameChange(event){
         this.setState({firstName: event.target.value});
         this.checkInput(event, this.textFirstNameInput, 0, 20);
-
-        // if (event.target.value.length < 0 || event.target.value.length > 20){
-        //     if (!this.textFirstNameInput.classList.contains("input-error")){
-        //         this.textFirstNameInput.classList.add("input-error");
-        //     }
-        // } else {
-        //     if (this.textFirstNameInput.classList.contains("input-error")){
-        //         this.textFirstNameInput.classList.remove("input-error");
-        //     }
-        // }
     }
 
     //method to check a users input to see if its in the appropriate range
@@ -175,6 +163,12 @@ class Contact extends React.Component {
         this.setState({message: event.target.value});
         this.checkInput(event, this.textMessageInput, 0, 255);
         console.log(this.state.message);
+    }
+
+    onDateChange(date){
+        this.setState({
+            selectedDate: date
+        });
     }
 
     render(){
@@ -241,7 +235,7 @@ class Contact extends React.Component {
                                 <label htmlFor="inputMessage">
                                     Message:
                                 </label>
-                                <textarea id="inputMessage" placeholder="Message" className="form-control" required={true}
+                                <textarea id="inputMessage" placeholder="Message" className="form-control"
                                           // ref={this.setMessageTextInputRef}
                                           value={this.state.message}
                                           ref={this.setMessageTextInputRef}
@@ -255,7 +249,34 @@ class Contact extends React.Component {
                             </div>
                         </div>
 
-                        <input type="submit" value="Submit" />
+
+                        <input className="btn btn-lg btn-outline-primary"
+                               onClick=""
+                               type="submit" value="Contact Us!" />
+
+                    <div className="input-group mb-3">
+                        <DatePicker
+                            className="form-control calendar-form"
+                            selected={this.state.selectedDate}
+                            onChange={this.onDateChange}
+                            minDate={new Date()}
+                            name="selectedDate"
+                            showTimeSelect
+                            timeIntervals={30}
+                            timeFormat="HH:mm"
+                            timeCaption="Time"
+                            dateFormat="MMMM d, yyyy h:mm aa"
+                            // by setting the min and max time, we can limit the hours
+                            minTime={new Date(0,0,0,7,30)}
+                            maxTime={new Date(0,0,0,18,30)}
+                            ref={(c) => this._calendar = c}
+                        />
+
+                    </div>
+
+                        <input className="btn btn-lg btn-outline-primary"
+                               // onClick={ this.setState({isAppointment: true})}
+                               type="submit" value="Book Appointment!" />
                     {/*</div>*/}
                 </form>
             </div>

@@ -16,9 +16,9 @@ function Footer(props) {
             <h1>This is the footer section</h1>
             <div className="row justify-content-start">
                 <div className="col-sm-3 align-self-start footer-contact">
-                    <p> <FontAwesomeIcon icon={faBuilding} /> Address: </p>
-                    <p> <FontAwesomeIcon icon={faPhoneSquare} /> Phone: </p>
-                    <p> <FontAwesomeIcon icon={faEnvelopeSquare} /> Email: </p>
+                    <p> <FontAwesomeIcon icon={faBuilding} /> Address: 123 Home Drive, Green Bay WI 54311</p>
+                    <p> <FontAwesomeIcon icon={faPhoneSquare} /> Phone: (999)-999-9999</p>
+                    <p> <FontAwesomeIcon icon={faEnvelopeSquare} /> Email: radiantbronzing@gmail.com</p>
                 </div>
                 <div className="col-sm-6 align-self-center">
                     <a href="https://www.facebook.com">
