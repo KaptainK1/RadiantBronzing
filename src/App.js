@@ -1,11 +1,11 @@
-import './App.css';
-import './components/Header';
+
+
 import React from 'react';
 import Header from "./components/Header";
 import About from "./components/About";
 import Pricing from "./components/Pricing";
 import Shop from "./components/Shop";
-import Navbar from "./components/Navbar";
+import MainNavbar from "./components/MainNavbar";
 import Footer from "./components/Footer";
 import BookNow from "./components/BookNow";
 import Contact from "./components/Contact";
@@ -19,13 +19,13 @@ class App extends React.Component {
             <Provider value={{}}>
                 <div className="App">
                     <Header/>
-                    <Navbar/>
+                    <MainNavbar/>
                     <About/>
                     <HorizontalRule/>
                     <Pricing/>
                     <HorizontalRule/>
                     <Shop/>
-                    <BookNow/>
+                    {/*<BookNow/>*/}
                     <Contact/>
                     <Footer/>
                 </div>

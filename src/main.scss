@@ -1,13 +1,21 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+///*#EBD0B4*/
+///*#BF884E*/
+//
+///*#230c0f DarkSienna*/
+///*#341b14 Brown*/
+///*#f9fad1 LightYellow*/
+///*#407d87 Teal*/
+///*#ff9b21 Orange*/
+///*#ee6802 BloodOrange*/
 
-/*#EBD0B4*/
-/*#BF884E*/
+// Create your own map
+$custom-colors: (
+        "custom-color": #ee6802
+);
 
-/*#230c0f DarkSienna*/
-/*#341b14 Brown*/
-/*#f9fad1 LightYellow*/
-/*#407d87 Teal*/
-/*#ff9b21 Orange*/
-/*#ee6802 BloodOrange*/
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
 
 .input-error  {
 }
@@ -154,4 +162,3 @@ textarea {
   z-index: 2;
   top: -20px;
 }
-
