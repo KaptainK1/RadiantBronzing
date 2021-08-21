@@ -8,7 +8,7 @@ import {Nav} from "react-bootstrap";
 function MainNavbar(props){
 
     return(
-        <Navbar variant="dark" bg="test" expand="md">
+        <Navbar variant="dark" bg="navBarBG" expand="md">
             <Container>
                 <Navbar.Brand href="#home">
                     <img

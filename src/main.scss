@@ -1,4 +1,5 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
+
+@import "custom";
 ///*#EBD0B4*/
 ///*#BF884E*/
 //
@@ -9,13 +10,6 @@
 ///*#ff9b21 Orange*/
 ///*#ee6802 BloodOrange*/
 
-// Create your own map
-$custom-colors: (
-        "custom-color": #ee6802
-);
-
-// Merge the maps
-$theme-colors: map-merge($theme-colors, $custom-colors);
 
 .input-error  {
 }
