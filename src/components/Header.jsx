@@ -1,5 +1,4 @@
 import React from 'react';
-import sunImg from '../images/sun-rotated.pdf';
 import sunImgRotated from '../images/sun-rotated-new.png';
 
 

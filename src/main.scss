@@ -1,15 +1,18 @@
 
+//import custom values from custom.scss which contains overrides for Boostrap library
 @import "custom";
+
 ///*#EBD0B4*/
 ///*#BF884E*/
-//
-///*#230c0f DarkSienna*/
-///*#341b14 Brown*/
-///*#f9fad1 LightYellow*/
-///*#407d87 Teal*/
-///*#ff9b21 Orange*/
-///*#ee6802 BloodOrange*/
 
+//Main Color Palette
+$darkSienna: #230c0f;
+//$brown: #341b14;
+$lightYellow: #f9fad1;
+$teal: #407d87;
+$orange: #ff9b21;
+$bloodOrange: #ee6802;
+$offWhite: #f6f5f0;
 
 .input-error  {
 }
@@ -49,11 +52,11 @@
 
 .footer-section a{
   padding: 15px;
-  color: #ff9b21;
+  color: $orange;
 }
 
 .footer-section a:hover {
-  color: #ee6802;
+  color: $bloodOrange;
 }
 
 .footer-contact {
@@ -61,7 +64,7 @@
 }
 
 .footer-contact p {
-  color: black;
+  color: $darkSienna;
   margin-bottom: 4px;
   padding-left: 4px;
 }
@@ -73,7 +76,7 @@
 
 hr {
   margin: 0 45% 0 45%;
-  border-color: black;
+  border-color: $darkSienna;
   background-color: transparent;
   border-bottom-style: dotted;
   border-width: 15px;
@@ -89,19 +92,19 @@ hr {
 
 body {
   font-size: 1.1em;
-  background-color: #f6f5f0;
+  background-color: $offWhite;
   color: #3e5336;
   font-family: 'Merriweather', serif;
 }
 
 h1 {
-  color: #ff9b21;
+  color: $orange;
   font-family: 'Sacramento', cursive;
   font-weight: bold;
 }
 
 .main-heading {
-  color: #407d87;
+  color: $teal;
   font-family: 'Sacramento', cursive;
   font-size: 3em;
   font-weight: bold;
@@ -113,31 +116,31 @@ h1 {
 }
 
 .btn-outline-primary {
-  background-color: #f6f5f0;
-  color: #ee6802;
-  border-color: #ee6802;
+  background-color: $offWhite;
+  color: $bloodOrange;
+  border-color: $bloodOrange;
 }
 
 .btn-outline-primary:hover {
-  background-color: #ee6802;
-  color: #f6f5f0;
-  border-color: #f6f5f0;
+  background-color: $bloodOrange;
+  color: $offWhite;
+  border-color: $offWhite;
 }
 
 .custom-navbar {
-  background-color: #ee6802;
+  background-color: $bloodOrange;
 }
 
 .navbar-custom .nav-link {
-  color: #f9fad1;
+  color: $lightYellow;
 }
 
 .nav-link:hover {
-  color: #407d87;
+  color: $teal;
 }
 
 .calendar-form {
-  border-color: #ee6802;
+  border-color: $bloodOrange;
   border-style: dashed;
 }
 

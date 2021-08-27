@@ -7,7 +7,7 @@ import Pricing from "./components/Pricing";
 import Shop from "./components/Shop";
 import MainNavbar from "./components/MainNavbar";
 import Footer from "./components/Footer";
-import BookNow from "./components/BookNow";
+// import BookNow from "./components/BookNow";
 import Contact from "./components/Contact";
 import HorizontalRule from "./components/HorizontalRule";
 import { Provider } from "./components/context";
