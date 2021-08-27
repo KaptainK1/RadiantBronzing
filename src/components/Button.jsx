@@ -1,9 +1,9 @@
 
 import React from 'react';
 
-import classes from './ErrorModalButton.module.css';
+import classes from './Button.module.css';
 
-const ErrorModalButton = (props) => {
+const Button = (props) => {
     return (
         <button
             className={classes.button}
@@ -15,4 +15,4 @@ const ErrorModalButton = (props) => {
     );
 };
 
-export default ErrorModalButton;
+export default Button;
