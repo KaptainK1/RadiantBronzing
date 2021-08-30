@@ -1,5 +1,6 @@
 import React from 'react';
 import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css';
 import ErrorModal from "./ErrorModal";
 
 class Contact extends React.Component {
@@ -8,6 +9,7 @@ class Contact extends React.Component {
     super(props);
         this.state= {
             firstName: '',
+            showBookNowSection: false,
             lastName: '',
             phone: '',
             email: '',
@@ -57,6 +59,7 @@ class Contact extends React.Component {
         this.checkInput = this.checkInput.bind(this);
         this.onDateChange=this.onDateChange.bind(this);
         this.errorHandler = this.errorHandler.bind(this);
+        this.handleShowBookNowSection = this.handleShowBookNowSection.bind(this);
     }
 
     setInputErrorColor(element) {
@@ -92,15 +95,15 @@ class Contact extends React.Component {
 
     formValidation(){
         let inputs = [{
-            inputField: this.textFirstNameInput, minLength:0, maxLength:20
+            inputField: this.textFirstNameInput, minLength:1, maxLength:20
         }, {
-            inputField: this.textLastNameInput, minLength:0, maxLength:20
+            inputField: this.textLastNameInput, minLength:1, maxLength:20
         }, {
             inputField: this.textPhoneInput,
             minLength:0,
             maxLength:11
         }, {
-            inputField: this.textEmailInput, minLength:0, maxLength:50
+            inputField: this.textEmailInput, minLength:1, maxLength:50
         }, {
             inputField: this.textMessageInput, minLength:0, maxLength:255
         }];
@@ -178,6 +181,18 @@ class Contact extends React.Component {
         });
     }
 
+    //function to show the book now feature once the book an appointment button is clicked
+    handleShowBookNowSection(event){
+        event.preventDefault();
+        let toggleValue = !this.state.showBookNowSection;
+        console.log("Toggle Value: " + toggleValue);
+        this.setState( {
+                showBookNowSection: toggleValue
+            }
+
+        );
+    }
+
     //function to clear the error state
     errorHandler() {
         this.setState({
@@ -189,7 +204,6 @@ class Contact extends React.Component {
         return(
 
             <div>
-                {/*display the error modal if there has been an error*/}
                 {this.state.errorMessage && (
                     <ErrorModal
                         title="Error!"
@@ -210,16 +224,15 @@ class Contact extends React.Component {
                                        value={this.state.firstName}
                                        ref={this.setFirstNameTextInputRef}
                                        onChange={this.handleFirstNameChange}
-                                        // onBlur={this.removeInputErrorColor}
                                 />
                             </div>
-
 
                             <div className="form-group col-md-6">
                                 <label htmlFor="inputLastName">
                                     Last Name:
                                 </label>
                                 <input id="inputLastName" placeholder="Last Name" className="form-control" type="text"
+                                       required={true}
                                        value={this.state.lastName}
                                        ref={this.setLastNameTextInputRef}
                                        onChange={this.handleLastNameChange}/>
@@ -227,11 +240,11 @@ class Contact extends React.Component {
                         </div>
 
                             <div className="row">
-                                <div className="form-group col-md-6 ">
+                                <div className="form-group col-md-6">
                                     <label htmlFor="inputPhone">
                                         Phone Number:
                                     </label>
-                                    <div className="trouble">
+                                    <div>
                                     <input id="inputPhone" placeholder="Phone Number" className="form-control" type="tel"
                                            value={this.state.phone}
                                            ref={this.setPhoneTextInputRef}
@@ -249,6 +262,7 @@ class Contact extends React.Component {
                                            onChange={this.handleEmailChange}/>
                                 </div>
                             </div>
+
 
                             <div className="row">
                                 {/*Empty div with a small column to center the message field*/}
@@ -273,34 +287,59 @@ class Contact extends React.Component {
                                 </div>
                             </div>
 
-
-                            <input className="btn btn-lg btn-outline-primary"
-                                   onClick={this.handleSubmit}
-                                   type="submit" value="Contact Us!" />
-
-                        <div className="input-group mb-3">
-                            <DatePicker
-                                className="form-control calendar-form"
-                                selected={this.state.selectedDate}
-                                onChange={this.onDateChange}
-                                minDate={new Date()}
-                                name="selectedDate"
-                                showTimeSelect
-                                timeIntervals={30}
-                                timeFormat="HH:mm"
-                                timeCaption="Time"
-                                dateFormat="MMMM d, yyyy h:mm aa"
-                                // by setting the min and max time, we can limit the hours
-                                minTime={new Date(0,0,0,7,30)}
-                                maxTime={new Date(0,0,0,18,30)}
-                                ref={(c) => this._calendar = c}
-                            />
+                        <div className="container">
+                            <div className="row book-appointment-section">
+                                <div className="col-lg-3 offset-3">
+                                    <input className="btn btn-lg btn-outline-primary"
+                                           type="submit" value="Contact Us!" />
+                                </div>
+                                <div className="col-lg-1">
+                                    <label htmlFor="btn-booknow-expander">Or</label>
+                                </div>
+                                <div className="col-lg-3">
+                                    <button id="btn-booknow-expander" onClick={this.handleShowBookNowSection} className="btn btn-lg btn-outline-primary">Book An Appointment</button>
+                                </div>
+                            </div>
                         </div>
 
-                            <input className="btn btn-lg btn-outline-primary"
-                                   // onClick={ this.setState({isAppointment: true})}
-                                   type="submit" value="Book Appointment!" />
-                        {/*</div>*/}
+                        {this.state.showBookNowSection && (
+                        <div>
+                            <div className="row" id="date-picker-section">
+
+                                <div className="col-md-3 offset-md-3 date-picker-section-component">
+                                    <p>Please select a preferred date and time:</p>
+                                </div>
+
+
+                                <div className="calendarApp col-md-3 date-picker-section-component">
+                                        <div className="input-group mb-3">
+                                            <DatePicker
+                                                className="form-control calendar-form"
+                                                id="date-picker"
+                                                selected={this.state.selectedDate}
+                                                onChange={this.onDateChange}
+                                                minDate={new Date()}
+                                                name="selectedDate"
+                                                showTimeSelect
+                                                timeIntervals={30}
+                                                timeFormat="HH:mm"
+                                                timeCaption="Time"
+                                                dateFormat="MMMM d, yyyy h:mm aa"
+                                                // by setting the min and max time, we can limit the hours
+                                                minTime={new Date(0,0,0,7,30)}
+                                                maxTime={new Date(0,0,0,18,30)}
+                                                ref={(c) => this._calendar = c}
+                                            />
+                                        </div>
+                                </div>
+                            </div>
+                                <input className="btn btn-lg btn-outline-primary"
+                                       type="submit"
+                                       //onClick={ this.setState({isAppointment: true})}
+                                       value="Book Appointment!" />
+                        </div>
+                        )}
+
                     </form>
                 </div>
             </div>

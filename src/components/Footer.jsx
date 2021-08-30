@@ -13,7 +13,7 @@ function Footer(props) {
 
     return(
         <div className="footer-section container-fluid">
-            <h1>This is the footer section</h1>
+            {/*<h1>This is the footer section</h1>*/}
             <div className="row justify-content-start">
                 <div className="col-sm-3 align-self-start footer-contact">
                     <p> <FontAwesomeIcon icon={faBuilding} /> Address: 123 Home Drive, Green Bay WI 54311</p>
