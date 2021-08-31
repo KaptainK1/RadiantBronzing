@@ -289,15 +289,17 @@ class Contact extends React.Component {
 
                         <div className="container">
                             <div className="row book-appointment-section">
-                                <div className="col-lg-3 offset-3">
+                                <div className="col-lg-6 offset-3" id="contact-us-cta">
                                     <input className="btn btn-lg btn-outline-primary"
                                            type="submit" value="Contact Us!" />
-                                </div>
-                                <div className="col-lg-1">
                                     <label htmlFor="btn-booknow-expander">Or</label>
-                                </div>
-                                <div className="col-lg-3">
                                     <button id="btn-booknow-expander" onClick={this.handleShowBookNowSection} className="btn btn-lg btn-outline-primary">Book An Appointment</button>
+
+                                </div>
+                                {/*<div className="col-lg-1">*/}
+                                {/*    */}
+                                {/*</div>*/}
+                                <div className="col-lg-3">
                                 </div>
                             </div>
                         </div>

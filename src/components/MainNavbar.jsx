@@ -9,7 +9,7 @@ function MainNavbar(props){
 
     return(
         <Navbar variant="dark" bg="navBarBG" expand="md">
-            <Container>
+            <Container fluid>
                 <Navbar.Brand href="#home">
                     <img
                         src={logo}
