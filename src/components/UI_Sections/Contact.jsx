@@ -1,7 +1,7 @@
 import React from 'react';
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
-import ErrorModal from "./ErrorModal";
+import ErrorModal from "../UI_Components/ErrorModal";
 
 class Contact extends React.Component {
 
@@ -14,7 +14,8 @@ class Contact extends React.Component {
             phone: '',
             email: '',
             message: '',
-            selectedDate: new Date(),
+            selectedDate: (new Date()),
+            // selectedDate: (Date.now().getFullYear(), Date.now.getMonth(), Date.now.getDate(),7,30),
             isAppointment: false,
             errorMessage: undefined
         }
@@ -62,6 +63,20 @@ class Contact extends React.Component {
         this.handleShowBookNowSection = this.handleShowBookNowSection.bind(this);
     }
 
+    componentDidMount() {
+        let currentDate = new Date();
+        currentDate.setHours(7);
+        currentDate.setMinutes(30);
+        currentDate.setSeconds(0);
+        currentDate.setMilliseconds(0);
+
+        console.log(currentDate);
+
+        this.setState({
+            selectedDate: currentDate
+        })
+    }
+
     setInputErrorColor(element) {
         element.classList.add("input-error");
     }
@@ -84,7 +99,7 @@ class Contact extends React.Component {
             //TODO if the form fails a validation check, we should be alerting the user as to what failed
 
         } else{
-            // alert('first name: ' + this.state.firstName + '\n'
+            // console.log('first name: ' + this.state.firstName + '\n'
             //     + 'last Name: ' + this.state.lastName + '\n'
             //     + 'phone number: ' + this.state.phone + '\n'
             //     + 'email: ' + this.state.email + '\n'
@@ -185,7 +200,7 @@ class Contact extends React.Component {
     handleShowBookNowSection(event){
         event.preventDefault();
         let toggleValue = !this.state.showBookNowSection;
-        console.log("Toggle Value: " + toggleValue);
+        // console.log("Toggle Value: " + toggleValue);
         this.setState( {
                 showBookNowSection: toggleValue
             }
@@ -202,7 +217,6 @@ class Contact extends React.Component {
 
     render(){
         return(
-
             <div>
                 {this.state.errorMessage && (
                     <ErrorModal
@@ -263,11 +277,9 @@ class Contact extends React.Component {
                                 </div>
                             </div>
 
-
                             <div className="row">
                                 {/*Empty div with a small column to center the message field*/}
                                 <div className="form-group col-md-2">
-
                                 </div>
                                 <div className="form-group col-md-8">
                                     <label htmlFor="inputMessage">
@@ -289,32 +301,37 @@ class Contact extends React.Component {
 
                         <div className="container">
                             <div className="row book-appointment-section">
-                                <div className="col-lg-6 offset-3" id="contact-us-cta">
-                                    <input className="btn btn-lg btn-outline-primary"
-                                           type="submit" value="Contact Us!" />
-                                    <label htmlFor="btn-booknow-expander">Or</label>
-                                    <button id="btn-booknow-expander" onClick={this.handleShowBookNowSection} className="btn btn-lg btn-outline-primary">Book An Appointment</button>
+                                <div className="col-md-3">
 
                                 </div>
-                                {/*<div className="col-lg-1">*/}
-                                {/*    */}
-                                {/*</div>*/}
+                                <div className="col-md-6" id="contact-us-cta">
+                                    <div>
+                                        <input className="btn btn-lg btn-outline-primary"
+                                               type="submit" value="Contact Us!" />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="btn-booknow-expander">Or</label>
+                                    </div>
+                                    <div>
+                                        <button id="btn-booknow-expander" onClick={this.handleShowBookNowSection}
+                                                className="btn btn-lg btn-outline-primary">Book An Appointment</button>
+                                    </div>
+                                </div>
                                 <div className="col-lg-3">
                                 </div>
                             </div>
                         </div>
 
                         {this.state.showBookNowSection && (
-                        <div>
+                        <div className="container-fluid">
                             <div className="row" id="date-picker-section">
 
                                 <div className="col-md-3 offset-md-3 date-picker-section-component">
                                     <p>Please select a preferred date and time:</p>
                                 </div>
 
-
-                                <div className="calendarApp col-md-3 date-picker-section-component">
-                                        <div className="input-group mb-3">
+                                <div className="calendarApp col-md-4 date-picker-section-component">
+                                        {/*<div className="input-group mb-3">*/}
                                             <DatePicker
                                                 className="form-control calendar-form"
                                                 id="date-picker"
@@ -332,7 +349,7 @@ class Contact extends React.Component {
                                                 maxTime={new Date(0,0,0,18,30)}
                                                 ref={(c) => this._calendar = c}
                                             />
-                                        </div>
+                                        {/*</div>*/}
                                 </div>
                             </div>
                                 <input className="btn btn-lg btn-outline-primary"
@@ -341,7 +358,6 @@ class Contact extends React.Component {
                                        value="Book Appointment!" />
                         </div>
                         )}
-
                     </form>
                 </div>
             </div>

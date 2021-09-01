@@ -1,6 +1,6 @@
 import React from 'react';
-import lorem from '../init.js';
-import logo from '../logo.svg';
+import lorem from '../../init.js';
+import logo from '../../logo.svg';
 
 function Pricing(props) {
 
