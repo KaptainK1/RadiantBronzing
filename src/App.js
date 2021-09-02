@@ -12,21 +12,33 @@ import Contact from "./components/UI_Sections/Contact";
 import HorizontalRule from "./components/UI_Components/HorizontalRule";
 import { Provider } from "./components/context";
 
+import Construction from "./components/UI_Sections/Construction";
+import ErrorModal from "./components/UI_Components/ErrorModal";
+
 class App extends React.Component {
 
     render() {
+        //need to comment out this line once we are production ready
+        let isUnderConstruction = true;
         return (
             <Provider value={{}}>
                 <div className="App">
-                    <Header/>
-                    <MainNavbar />
-                    <About />
-                    <HorizontalRule/>
-                    <Pricing/>
-                    <HorizontalRule/>
-                    <Shop/>
-                    <Contact/>
-                    <Footer/>
+                    {/*//need to comment out these line once we are production ready*/}
+                    {isUnderConstruction ?
+                         <Construction />
+                     :
+                        <div>
+                            <Header/>
+                            <MainNavbar />
+                            <About />
+                            <HorizontalRule/>
+                            <Pricing/>
+                            <HorizontalRule/>
+                            <Shop/>
+                            <Contact/>
+                            <Footer/>
+                        </div>
+                    }
                 </div>
             </Provider>
         );
