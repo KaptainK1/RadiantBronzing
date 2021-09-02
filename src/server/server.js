@@ -9,6 +9,11 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+app.get('/test', (req, res) => {
+    res.send('test!');
+    }
+)
+
 app.get('/testEmail', (req,res) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
