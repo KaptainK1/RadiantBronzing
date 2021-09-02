@@ -21,7 +21,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: radiant-bronzing    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: './radiant-bronzing'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.x'                # set this to the node version to use
 
 jobs:
@@ -37,8 +37,7 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
     - name: npm install
       run: |
-        # Build and test the project, then
-        # deploy to Azure Web App.
+        # Build the project, then deploy to Azure Web App.
         npm install
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
