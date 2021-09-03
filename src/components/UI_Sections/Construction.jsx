@@ -29,6 +29,7 @@ class Construction extends Component {
                  <h1>This Website is still under construction</h1>
                  <h2>Be sure to check out my Facebook here!</h2>
                  <a href="https://www.facebook.com/Radiantbronzingboutique/">Radiant Bronzing Boutique LLC</a>
+                 <p>{this.state.data}</p>
              </React.Fragment>
          );
      }
